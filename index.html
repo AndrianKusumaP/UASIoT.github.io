@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-top: 0;
+      padding-top: 20px;
+    }
+
+    .form-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    #namaBarangInput {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 10px;
+      font-size: 14px;
+      width: 200px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .item-list {
+      width: 45%;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 10px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .item-list p {
+      margin: 5px 0;
+      color: #333;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      padding-bottom: 5px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Data Barang</h1>
+  <div class="form-container">
+    <input type="text" id="namaBarangInput" placeholder="Masukkan nama barang">
+    <button onclick="simpanNamaBarang()">Simpan</button>
+  </div>
+  <div id="container">
+    <div class="item-list" id="itemList">
+      <p class="section-title">Nama Barang</p>
+    </div>
+    <div class="item-list" id="itemList2">
+      <p class="section-title">Jumlah Item</p>
+    </div>
+  </div>
+
+
+  <script>
+    // Konfigurasi Firebase
+    var firebaseConfig = {
+      apiKey: "AIzaSyDWvBznJqYOTgyGx8nfcM_Q3gEDd0p06sI",
+      authDomain: "uas-iot-519c6.firebaseapp.com",
+      databaseURL: "https://uas-iot-519c6-default-rtdb.firebaseio.com",
+      projectId: "uas-iot-519c6",
+      storageBucket: "uas-iot-519c6.appspot.com",
+      messagingSenderId: "118158121845",
+      appId: "1:118158121845:web:f3eb5c091eaa26aa36d13c"
+    };
+
+    // Inisialisasi Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Mendapatkan referensi database
+    var database = firebase.database();
+
+    // Mendapatkan referensi ke path "items" pada Firebase Database
+    var itemsRef = firebase.database().ref('items');
+
+    // Mendapatkan elemen untuk menampilkan hasil inputan
+    var itemList = document.getElementById('itemList');
+
+    itemsRef.on('value', function(snapshot) {
+      var itemList = document.getElementById('itemList');
+      itemList.innerHTML = "<p class='section-title'>Nama Barang</p>"; // Tambahkan judul
+
+      snapshot.forEach(function(childSnapshot) {
+        var namaBarangInput = childSnapshot.val().item;
+        var listItem = document.createElement('p');
+        listItem.textContent = namaBarangInput;
+        itemList.appendChild(listItem);
+      });
+    });
+
+    database.ref('itemCount').on('value', function(snapshot) {
+      var itemList = document.getElementById('itemList2');
+      itemList.innerHTML = "<p class='section-title'>Jumlah Item</p>"; // Tambahkan judul
+
+      snapshot.forEach(function(childSnapshot) {
+        var count = childSnapshot.val();
+        var listItem = document.createElement('p');
+        listItem.textContent = count;
+        itemList.appendChild(listItem);
+      });
+    });
+  
+    function simpanNamaBarang() {
+      var namaBarangInput = document.getElementById("namaBarangInput").value;
+      
+      // Menambahkan data ke Firebase Database
+      itemsRef.push().set({
+        item: namaBarangInput
+      }).then(function() {
+        console.log("Data berhasil ditambahkan ke Firebase Database!");
+        // Nilai input akan dikosongkan secara otomatis setelah data ditambahkan
+      }).catch(function(error) {
+        console.error("Error:", error);
+      });
+    }
+
+  </script>
+</body>
+</html>
