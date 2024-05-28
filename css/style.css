@@ -26,7 +26,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.4rem 7%;
+  padding: 1rem 7%;
   background: linear-gradient(to right, #c35d1d, #b37134);
   position: fixed;
   top: 0;
@@ -40,6 +40,11 @@ body {
   display: inline-block;
   font-size: 1.1rem;
   margin: 0 1rem;
+}
+
+.navbar .navbar-logo img {
+  height: 5rem;
+  width: 8rem;
 }
 
 .navbar .navbar-nav a:hover {
