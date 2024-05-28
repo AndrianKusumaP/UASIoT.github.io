@@ -657,6 +657,11 @@ footer .credit a {
     right: 20px;
     padding: 12px;
   }
+
+  .whatsapp-icon {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 /* Mobile */
@@ -690,7 +695,7 @@ footer .credit a {
   .whatsapp-button {
     bottom: 10px;
     right: 10px;
-    padding: 8px;
+    padding: 10px;
   }
 
   .swiper {
