@@ -611,6 +611,18 @@ footer .credit a {
     font-size: 1.4rem;
   }
 
+  .services .row .services-card h3 {
+    font-size: 2.4rem;
+  }
+
+  .services .row .services-card h3 {
+    font-size: 2.4rem;
+  }
+
+  .services .row .services-card p {
+    font-size: 1.3rem;
+  }
+
   .contact .row {
     flex-wrap: wrap;
   }
@@ -638,6 +650,12 @@ footer .credit a {
 
   footer .links a {
     flex: 1 1 30%;
+  }
+
+  .whatsapp-button {
+    bottom: 10px;
+    right: 20px;
+    padding: 12px;
   }
 }
 
@@ -667,6 +685,16 @@ footer .credit a {
   .container .box .about-box:nth-child(1),
   .container .box .about-box:nth-child(3) {
     align-self: center;
+  }
+
+  .whatsapp-button {
+    bottom: 10px;
+    right: 10px;
+    padding: 8px;
+  }
+
+  .swiper {
+    padding-bottom: 3.6rem;
   }
 }
 
