@@ -1,0 +1,496 @@
+:root {
+  --primary: #f08619;
+  --bg: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 7%;
+  background: linear-gradient(to right, #c35d1d, #b37134);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-nav a {
+  color: #fafaeb;
+  display: inline-block;
+  font-size: 1.1rem;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-logo img {
+  height: 5rem;
+  width: 8rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: #d2a271;
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid #d2a271;
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.navbar .navbar-extra a {
+  color: #fafaeb;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+  color: #d2a271;
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/* Hero Section */
+.hero {
+  margin-top: 10vh;
+  background: linear-gradient(180deg, #fac48d 0%, #f08619 100%);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 7%;
+  padding-left: 7%;
+}
+
+.hero h1 {
+  font-size: 3.4rem;
+}
+
+.hero p {
+  font-size: 1.6rem;
+  margin-top: 0.8rem;
+}
+
+.hero .card-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.6rem;
+  margin-top: 2.8rem;
+}
+
+.hero .card-container .card {
+  background-color: #6c3c0b;
+  color: #ffffff;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  align-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  height: 6rem;
+  width: 14rem;
+}
+
+/* About Section */
+.about,
+.how-to,
+.pricing {
+  padding: 2rem 7% 1.4rem;
+}
+
+.about {
+  display: flex;
+  text-align: justify;
+}
+
+.about .about-image {
+  flex: 1 1 30rem;
+}
+
+.about .about-image img {
+  width: 100%;
+}
+
+.about .about-text {
+  flex: 1 1 45rem;
+  padding-left: 1rem;
+  padding-right: 5rem;
+  align-content: center;
+}
+
+.about .about-text h3 {
+  color: #632601;
+  font-size: 2.4rem;
+  margin-bottom: 1.8rem;
+}
+
+.about .about-text p {
+  font-size: 1.2rem;
+}
+
+/* How to Section */
+.how-to h2,
+.pricing h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  color: #632601;
+}
+
+.how-to h2 span,
+.pricing h2 span {
+  color: var(--primary);
+}
+
+.how-to .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  justify-content: center;
+}
+
+.how-to .row .how-to-card {
+  text-align: center;
+  width: 20%;
+  padding-bottom: 4rem;
+}
+
+.how-to .row .how-to-card img {
+  border-radius: 50%;
+  border: 1px #c7c5c5 solid;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 80%;
+}
+
+.how-to .row .how-to-card .how-to-title {
+  margin-top: 1rem;
+  color: #632601;
+}
+
+/* Pricing Section */
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.pricing-cards .card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 6px 7px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  width: 300px;
+  padding: 2rem;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pricing-cards .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 12px 15px rgba(140, 152, 164, 0.2);
+}
+
+.pricing-cards .card h3 {
+  text-align: center;
+  color: #f08619;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.pricing-cards .card img {
+  display: block;
+  margin: 0 auto 1.5rem;
+  width: 80px;
+  height: 80px;
+}
+
+.pricing-cards .card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pricing-cards .card ul li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.pricing-cards .card ul li:before {
+  content: '✔';
+  color: #27ae60;
+  position: absolute;
+  left: 0;
+}
+
+.pricing-cards .card ul li.unavailable:before {
+  content: '✘';
+  color: #e74c3c;
+}
+
+.pricing-cards .card ul li.unavailable {
+  color: #999;
+  text-decoration: line-through;
+}
+
+.pricing-cards .price {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
+  color: #e74c3c;
+}
+
+.pricing-cards .price span {
+  display: block;
+  font-size: 1.2rem;
+  color: #2ecc71;
+}
+
+.price del {
+  text-decoration: line-through;
+}
+
+.pricing-cards button {
+  display: block;
+  width: 100%;
+  background: #F08619;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pricing-cards button:hover {
+  background: #c96a18;
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+  position: fixed;
+  display: flex;
+  bottom: 30px;
+  right: 20px;
+  background-color: #25d366;
+  padding: 19px;
+  border-radius: 50%;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebea5;
+}
+
+.whatsapp-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* Footer Section */
+footer {
+  background-color: var(--primary);
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer .socials {
+  padding: 1rem 0;
+}
+
+footer .socials a {
+  color: black;
+  margin: 1rem;
+}
+
+footer .email {
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+footer .email p {
+  color: black;
+  padding-left: 0.8rem;
+}
+
+footer .email a {
+  color: black;
+}
+
+footer .credit {
+  font-size: 0.8rem;
+  color: black;
+}
+
+footer .credit a {
+  color: black;
+  font-weight: bold;
+}
+
+/* Media query */
+
+/* Laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #b37134;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: #fafaeb;
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .whatsapp-button {
+    bottom: 12px;
+    right: 20px;
+    padding: 12px;
+  }
+
+  .whatsapp-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero {
+    margin-top: 8vh;
+  }
+
+  .hero p {
+    text-align: center;
+  }
+
+  .about {
+    flex-wrap: wrap;
+  }
+
+  .about .about-image img {
+    object-position: center;
+  }
+
+  .about .about-text {
+    padding: 0;
+  }
+
+  .about .about-text h3 {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 2rem;
+  }
+
+  .about .about-text p {
+    font-size: 1.6rem;
+  }
+
+  .how-to .row .how-to-card {
+    width: 40%;
+  }
+
+  .how-to .row .how-to-card .how-to-title {
+    font-size: 1.5rem;
+  }
+
+
+}
+
+/* Mobile */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+
+  .hero {
+    margin-top: 6vh;
+  }
+
+  .how-to .row .how-to-card {
+    width: 80%;
+  }
+
+  .how-to .row .how-to-card img {
+    max-width: 150px;
+  }
+
+  .whatsapp-button {
+    bottom: 14px;
+    right: 14px;
+    padding: 10px;
+  }
+
+  .whatsapp-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero .card-container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+.navbar:not(.hamburger-active) .navbar-nav {
+  margin-left: auto;
+}
